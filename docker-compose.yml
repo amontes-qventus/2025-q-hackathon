@@ -29,8 +29,10 @@ services:
       minio server /data --console-address ':9001' &
       sleep 5 &&
       mc alias set myminio http://localhost:9000 admin password &&
-      mc mb myminio/lakehouse &&
-      mc mb myminio/lake &&
+      (mc ls myminio/lakehouse || mc mb myminio/lakehouse) &&
+      (mc ls myminio/lake || mc mb myminio/lake) &&
+      (mc ls myminio/q-lakehouse || mc mb myminio/q-lakehouse) &&
+      (mc ls myminio/q-lake || mc mb myminio/q-lake) &&
       tail -f /dev/null
       "
 
