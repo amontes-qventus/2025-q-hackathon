@@ -34,4 +34,5 @@ sources:
 
 models:
   - name: dim_hospitals_enlarged
+  - name: or_cases_scheduled_enriched
 
