@@ -36,4 +36,5 @@ We defined a docker-compose file to spin up 4 different services:
 
 ## Next steps
 1. Incorporate the new variables we collected from the enrichment process, and include them in the training of the model
-2. Create some visualizations to make easier the assessment of cases likely to be cancelled
+2. Add more data to do geographical analysis, and understand if hospital distance or service area has some impact over the likeliness of case to be cancelled
+3. Create some visualizations to make easier the assessment of cases likely to be cancelled
