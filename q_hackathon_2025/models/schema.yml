@@ -1,0 +1,37 @@
+version: 2
+
+sources:
+  - name: q_lake_hospitals
+    database: q-lake
+    schema: hospitals
+    tables:
+      - name: main_hospitals
+        identifier: hospitals.csv
+        description: "Hospitals data"
+
+  - name: q_lake_georef_data
+    database: q-lake
+    schema: georef_united_states_of_america_zc_point
+    tables:
+      - name: georef_united_states_of_america_zc_point # Replace with the table name
+        identifier: georef-united-states-of-america-zc-point.csv
+        description: "United States zip code enlarged information"
+
+  - name: q_lake_or_cases
+    database: q-lake
+    schema: cases
+    tables:
+      - name: or_cases_golden_scheduled_after_oct_2024
+        identifier: Cases.csv
+        description: |
+          "CSV data output from this query in Snowflake:
+          
+           select case_cancellation_time, hospital, scheduled_surgery_date, patient_class, patient_financial_id,
+           patient_age_months, patient_gender_client, patient_race_client, patient_weight_in_kg, patient_home_zip_code, 
+           patient_language_client, primary_payor_client, case_specialty, count_scheduled_procedures_in_case, 
+           scheduled_primary_procedure_id, scheduled_wheelsin_to_wheelsout_min_derived, days_scheduled_in_advance, 
+           case_status_class from public.or_cases_golden_scheduled where scheduled_surgery_date >= '2024-01-01';"
+
+models:
+  - name: dim_hospitals_enlarged
+
